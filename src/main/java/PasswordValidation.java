@@ -6,6 +6,7 @@ public class PasswordValidation {
         boolean currentState = true;
         for (String s : passwords) {
             if (!validatePassword(s)) {
+                System.out.println("Your Array contains one ore more wrong passwords!");
                 return false;
             }
         }
@@ -13,6 +14,17 @@ public class PasswordValidation {
     }
 
     public static boolean validatePassword(String password) {
+        if (!validatePasswordLength(password)) {
+            System.out.println("Your password has only " +
+                    password.length() + " letters! You need " + PASSWORDLENGTH + " ones.");
+        }
+        if (!validateLowerAndUpperCase(password)) {
+            System.out.println("Your password needs lowercase AND uppercase letters!");
+        }
+        if (!validateIfPasswordConsistsNums(password)) {
+            System.out.println("Your password needs one oder more numbers!");
+        }
+
         return validatePasswordLength(password)
                 && validateIfPasswordConsistsNums(password)
                 && validateLowerAndUpperCase(password);
