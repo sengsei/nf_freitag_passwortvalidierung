@@ -2,11 +2,23 @@ public class PasswordValidation {
 
     final static int PASSWORDLENGTH = 8;
 
-    public static boolean validatePassword(String password) {
-        return validatePasswordLength(password) && validateIfPasswordConsistsNums(password);
+    public static boolean validatePasswordArray(String[] passwords) {
+        boolean currentState = true;
+        for (String s : passwords) {
+            if (!validatePassword(s)) {
+                return false;
+            }
+        }
+        return currentState;
     }
 
-    public static boolean validatePasswordLength(String password){
+    public static boolean validatePassword(String password) {
+        return validatePasswordLength(password)
+                && validateIfPasswordConsistsNums(password)
+                && validateLowerAndUpperCase(password);
+    }
+
+    public static boolean validatePasswordLength(String password) {
         return password.length() >= PASSWORDLENGTH;
     }
 
@@ -23,15 +35,11 @@ public class PasswordValidation {
             if (Character.isLowerCase(currentChar)) {
                 isLowerCase = true;
             }
-            if (Character.isUpperCase(currentChar)){
+            if (Character.isUpperCase(currentChar)) {
                 isUppercase = true;
             }
         }
         return (isLowerCase && isUppercase);
     }
-
-
-
-
 
 }
