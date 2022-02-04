@@ -103,4 +103,41 @@ class PasswordValidationTest {
         assertFalse(result);
     }
 
+    // Test for lower and upper cases
+    @Test
+    void passwordContainsLowerAndUpperCaseLetters() {
+        //given
+        String password = "Password";
+
+        //when
+        boolean result = PasswordValidation.validateLowerAndUpperCase(password);
+
+        //then
+        assertTrue(result);
+    }
+
+    @Test
+    void passwordUpperCaseLetters() {
+        //given
+        String password = "PASSWORD";
+
+        //when
+        boolean result = PasswordValidation.validateLowerAndUpperCase(password);
+
+        //then
+        assertFalse(result);
+    }
+
+    @Test
+    void passwordLowerCaseLetters() {
+        //given
+        String password = "password";
+
+        //when
+        boolean result = PasswordValidation.validateLowerAndUpperCase(password);
+
+        //then
+        assertFalse(result);
+    }
+
 }

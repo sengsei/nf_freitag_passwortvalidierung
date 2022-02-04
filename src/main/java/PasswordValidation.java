@@ -14,6 +14,22 @@ public class PasswordValidation {
         return password.chars().anyMatch(Character::isDigit);
     }
 
+    public static boolean validateLowerAndUpperCase(String password) {
+        char currentChar;
+        boolean isUppercase = false;
+        boolean isLowerCase = false;
+        for (int i = 0; i < password.length(); i++) {
+            currentChar = password.charAt(i);
+            if (Character.isLowerCase(currentChar)) {
+                isLowerCase = true;
+            }
+            if (Character.isUpperCase(currentChar)){
+                isUppercase = true;
+            }
+        }
+        return (isLowerCase && isUppercase);
+    }
+
 
 
 
