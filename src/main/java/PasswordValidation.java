@@ -14,28 +14,25 @@ public class PasswordValidation {
     }
 
     public static boolean validatePassword(String password) {
-        if (!validatePasswordLength(password)) {
-            System.out.println("Your password has only " +
-                    password.length() + " letters! You need " + PASSWORDLENGTH + " ones.");
-        }
-        if (!validateLowerAndUpperCase(password)) {
-            System.out.println("Your password needs lowercase AND uppercase letters!");
-        }
-        if (!validateIfPasswordConsistsNums(password)) {
-            System.out.println("Your password needs one oder more numbers!");
-        }
-
         return validatePasswordLength(password)
                 && validateIfPasswordConsistsNums(password)
                 && validateLowerAndUpperCase(password);
     }
 
     public static boolean validatePasswordLength(String password) {
+        if (!(password.length() >= PASSWORDLENGTH)) {
+            System.out.println("Your password has only " +
+                    password.length() + " letters! You need " + PASSWORDLENGTH + " ones.");
+        }
         return password.length() >= PASSWORDLENGTH;
     }
 
     public static boolean validateIfPasswordConsistsNums(String password) {
-        return password.chars().anyMatch(Character::isDigit);
+        boolean consistsNumbers = password.chars().anyMatch(Character::isDigit);
+        if (!consistsNumbers){
+            System.out.println("Your password needs one oder more numbers!");
+        }
+        return consistsNumbers;
     }
 
     public static boolean validateLowerAndUpperCase(String password) {
@@ -50,6 +47,9 @@ public class PasswordValidation {
             if (Character.isUpperCase(currentChar)) {
                 isUppercase = true;
             }
+        }
+        if (!(isLowerCase && isUppercase)) {
+                System.out.println("Your password needs lowercase AND uppercase letters!");
         }
         return (isLowerCase && isUppercase);
     }
