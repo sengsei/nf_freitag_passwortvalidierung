@@ -3,14 +3,14 @@ public class PasswordValidation {
     final static int PASSWORDLENGTH = 8;
 
     public static boolean validatePasswordArray(String[] passwords) {
-        boolean currentState = true;
+
         for (String s : passwords) {
             if (!validatePassword(s)) {
                 System.out.println("Your Array contains one ore more wrong passwords!");
                 return false;
             }
         }
-        return currentState;
+        return true;
     }
 
     public static boolean validatePassword(String password) {
