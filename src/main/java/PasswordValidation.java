@@ -19,7 +19,7 @@ public class PasswordValidation {
                 && validateLowerAndUpperCase(password);
     }
 
-    public static boolean validatePasswordLength(String password) {
+    private static boolean validatePasswordLength(String password) {
         if (!(password.length() >= PASSWORDLENGTH)) {
             System.out.println("Your password has only " +
                     password.length() + " letters! You need " + PASSWORDLENGTH + " ones.");
@@ -27,7 +27,7 @@ public class PasswordValidation {
         return password.length() >= PASSWORDLENGTH;
     }
 
-    public static boolean validateIfPasswordConsistsNums(String password) {
+    private static boolean validateIfPasswordConsistsNums(String password) {
         boolean consistsNumbers = password.chars().anyMatch(Character::isDigit);
         if (!consistsNumbers){
             System.out.println("Your password needs one oder more numbers!");
@@ -35,7 +35,7 @@ public class PasswordValidation {
         return consistsNumbers;
     }
 
-    public static boolean validateLowerAndUpperCase(String password) {
+    private static boolean validateLowerAndUpperCase(String password) {
         char currentChar;
         boolean isUppercase = false;
         boolean isLowerCase = false;

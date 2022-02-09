@@ -4,101 +4,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PasswordValidationTest {
 
-    // Tests for password Length case
-    @Test
-    void isPasswordHigherThenPwdLength() {
-        //given
-        String password = "password1";
-
-        //when
-        boolean result = PasswordValidation.validatePasswordLength(password);
-
-        //then
-        assertTrue(result);
-    }
-
-    @Test
-    void isPasswordEqualsPwdLength() {
-        //given
-        String password = "password";
-
-        //when
-        boolean result = PasswordValidation.validatePasswordLength(password);
-
-        //then
-        assertTrue(result);
-    }
-
     @Test
     void isPasswordLowerPwdLength() {
         //given
         String password = "pass";
 
         //when
-        boolean result = PasswordValidation.validatePasswordLength(password);
-
-        //then
-        assertFalse(result);
-    }
-
-    // Tests for password contains numbers case
-    @Test
-    void passwordConsistsNumbers() {
-        //given
-        String password = "passw0rd";
-
-        //when
-        boolean result = PasswordValidation.validateIfPasswordConsistsNums(password);
-
-        //then
-        assertTrue(result);
-    }
-
-    @Test
-    void passwordNotConsistsNumbers() {
-        //given
-        String password = "passwrd";
-
-        //when
-        boolean result = PasswordValidation.validateIfPasswordConsistsNums(password);
-
-        //then
-        assertFalse(result);
-    }
-
-
-    // Test for lower and upper cases
-    @Test
-    void passwordContainsLowerAndUpperCaseLetters() {
-        //given
-        String password = "Password";
-
-        //when
-        boolean result = PasswordValidation.validateLowerAndUpperCase(password);
-
-        //then
-        assertTrue(result);
-    }
-
-    @Test
-    void passwordUpperCaseLetters() {
-        //given
-        String password = "PASSWORD";
-
-        //when
-        boolean result = PasswordValidation.validateLowerAndUpperCase(password);
-
-        //then
-        assertFalse(result);
-    }
-
-    @Test
-    void passwordLowerCaseLetters() {
-        //given
-        String password = "password";
-
-        //when
-        boolean result = PasswordValidation.validateLowerAndUpperCase(password);
+        boolean result = PasswordValidation.validatePassword(password);
 
         //then
         assertFalse(result);
